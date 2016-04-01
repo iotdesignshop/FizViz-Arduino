@@ -44,9 +44,11 @@ void MinMaxLightControlClass::renderFrame(uint16_t pos, NEEDLE_DIRECTION dir)
   {
     for (uint8_t c = 0; c < COLOR_BYTES; c++)
     {
-      ledCurrentColors[p][c] = 0;
+      ledCurrentColors[p][c] = gammaCorrect(hotNeedleColor[c]);
     }
-    strip->setPixelColor(p, 0);
+    strip->setPixelColor(p, ledCurrentColors[p][RED],
+                            ledCurrentColors[p][GREEN],
+                            ledCurrentColors[p][BLUE]);
   }
 
   // Now draw: minimum bar
@@ -73,12 +75,6 @@ void MinMaxLightControlClass::renderFrame(uint16_t pos, NEEDLE_DIRECTION dir)
     strip->setPixelColor(p, ledCurrentColors[p][RED],
                             ledCurrentColors[p][GREEN],
                             ledCurrentColors[p][BLUE]);
-  }
-
-  // And hot pixel
-  for (uint8_t c = 0; c < COLOR_BYTES; c++)
-  {
-    ledCurrentColors[needlePosition][c] = gammaCorrect(hotNeedleColor[c]);
   }
 
   strip->show();

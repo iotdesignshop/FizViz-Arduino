@@ -152,7 +152,7 @@ void FizVizFirmataClass::setDisplayMode(byte argc, byte *argv)
         fadeTime = argv[1] + (argv[2] << 7);
         hotPixelColor[RED] = argv[3] + (argv[4] << 7);
         hotPixelColor[GREEN] = argv[5] + (argv[6] << 7);
-        hotPixelColor[BLUE] = argv[7] + (argv[7] << 7);
+        hotPixelColor[BLUE] = argv[7] + (argv[8] << 7);
       }
       break;
     }
