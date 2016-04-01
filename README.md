@@ -48,4 +48,11 @@ Control
 -------
 See the Windows project in GitHub for the control and setup application.  
 
-
+Libraries
+---------
+These are the libraries we're using:
+Stepper by Arduino v1.1.2
+Firmata by Firmata Developers v2.5.2
+Time by Michael Margolis v1.5.0 
+Adafruit NeoPixel by Adafruit v1.0.4
+WiFi101 by Arduino v0.8.0
