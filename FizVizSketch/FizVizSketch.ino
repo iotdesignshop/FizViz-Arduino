@@ -3,6 +3,7 @@
 #include "HotNeedleLightControl.h"
 #include "BlockNeedleLightControl.h"
 #include "BackgroundRotateLightControl.h"
+#include "MinMaxLightControl.h"
 #include "Error.h"
 #include <Stepper.h>
 
@@ -153,6 +154,9 @@ void onDisplayModeUpdate()
       break;
     case DISPLAY_MODE_BACKGROUND_ROTATE:
       lightControl = new BackgroundRotateLightControlClass(FizVizFirmata.backgroundColor, FizVizFirmata.rotateOffset, framePeriod, &strip);
+      break;
+    case DISPLAY_MODE_MIN_MAX:
+      lightControl = new MinMaxLightControlClass(FizVizFirmata.backgroundColor, FizVizFirmata.fadeTime, FizVizFirmata.hotPixelColor, framePeriod, &strip);
       break;
   }
   lightControl->setMinMaxConfig(FizVizFirmata.displayMin, FizVizFirmata.displayMax, FizVizFirmata.minColor, FizVizFirmata.maxColor, FizVizFirmata.minMaxResetDuration, MIN_MAX_DRAW_WIDTH_DEFAULT);
